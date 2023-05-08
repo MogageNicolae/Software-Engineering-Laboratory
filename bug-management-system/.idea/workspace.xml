@@ -5,11 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a4ab4c7-1bfe-46d6-9ee6-bb683aa480bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bms/bugmanagementsystem/developerView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bms/bugmanagementsystem/testerView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/Software-Engineering-Laboratory.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/thriftCompiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/StartClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/DeveloperController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/TesterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/developerView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/logInView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/testerView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Bug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Developer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/StatusBug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Tester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcReflectionWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/RequestType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ResponseType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/utils/AbsConcurrentServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/utils/AbstractServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/utils/RpcConcurrentServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/utils/ServerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Networking/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/AbstractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/JdbcUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/BugRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/IBugRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/developers/DeveloperRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/developers/IDeveloperRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/dialect/identity/SQLiteDialectIdentityColumnSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/testers/ITesterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/testers/TesterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Persistence/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/bms/server/StartServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/bms/server/implementation/ServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/src/main/java/bms/services/IObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/src/main/java/bms/services/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,16 +67,90 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/Client">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/Client">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/ClientSimple">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Persistence">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Server">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Domain">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="ClientSimple" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="ClientSimple" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="ClientSimple" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="Server" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="Server" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bug-management-system" type="f1a62948:ProjectNode" />
+                <item name="Server" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,14 +163,151 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "jbr-17",
+    "last_opened_file_path": "F:/Repositories/Software-Engineering-Laboratory/bug-management-system/Networking/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37471265",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Networking\src\main\resources" />
+      <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Persistence\src\main\resources" />
+      <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Server" />
+      <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Persistence\src\main\java\bms\perstistence" />
+      <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Networking\src\main\java\bms\protocol" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.bug-management-system:ClientSimple [run]">
+    <configuration name="Client [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Client" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="bug-management-system:ClientSimple [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ClientSimple" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="bug-management-system:Domain [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Domain" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="bug-management-system:Persistence [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Persistence" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="bug-management-system:Server [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.bug-management-system:ClientSimple [run]" />
+        <item itemvalue="Gradle.bug-management-system:Server [run]" />
+        <item itemvalue="Gradle.bug-management-system:Domain [build]" />
+        <item itemvalue="Gradle.bug-management-system:Persistence [build]" />
+        <item itemvalue="Gradle.Client [run]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,6 +319,11 @@
       <workItem from="1680469622149" duration="1799000" />
       <workItem from="1680514729544" duration="18000" />
       <workItem from="1680520869679" duration="1070000" />
+      <workItem from="1683510619962" duration="12845000" />
+      <workItem from="1683537235276" duration="132000" />
+      <workItem from="1683537411590" duration="177000" />
+      <workItem from="1683537630603" duration="3972000" />
+      <workItem from="1683543792327" duration="4434000" />
     </task>
     <servers />
   </component>
