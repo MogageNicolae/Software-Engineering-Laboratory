@@ -2,6 +2,7 @@ package bms.client;
 
 import bms.client.gui.DeveloperController;
 import bms.client.gui.LoginController;
+import bms.client.gui.TesterController;
 import bms.protocol.ClientRpcProxy;
 import bms.services.IService;
 import javafx.application.Application;
@@ -23,17 +24,8 @@ public class StartClient extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/logInView.fxml"));
         Parent root = fxmlLoader.load();
 
-        FXMLLoader developerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/developerView.fxml"));
-        Parent developerRoot = developerLoader.load();
-
         LoginController loginController = fxmlLoader.getController();
-        loginController.setParent(developerRoot);
         loginController.setServer(server);
-
-        DeveloperController developerController = developerLoader.getController();
-        developerController.setServer(server);
-
-        loginController.setDeveloperController(developerController);
 
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(new Scene(root, 250, 260));

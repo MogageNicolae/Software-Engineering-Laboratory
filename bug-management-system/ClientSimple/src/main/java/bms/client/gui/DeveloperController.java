@@ -13,7 +13,7 @@ public class DeveloperController implements IObserver {
     @FXML
     public Button logoutButton;
 
-    private final Stage stage = new Stage();
+    private Stage stage;
     private Stage loginStage;
     private IService service;
     private Developer developer;
@@ -24,6 +24,10 @@ public class DeveloperController implements IObserver {
 
     public void setStage(Stage stage) {
         this.loginStage = stage;
+    }
+
+    public void setDeveloperStage(Stage stage) {
+        this.stage = stage;
     }
 
     public void setDeveloper(Developer developer) {
