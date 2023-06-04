@@ -8,9 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -41,6 +39,10 @@ public class ClientRpcProxy implements IService {
             case OK -> {
                 this.client = client;
                 return response.data();
+            }
+            case NULL -> {
+                closeConnection();
+                return null;
             }
             case ERROR -> {
                 String error = response.data().toString();
@@ -83,6 +85,59 @@ public class ClientRpcProxy implements IService {
     public void logout(Developer person, IObserver client) throws Exception {
         Request request = new Request.Builder().type(RequestType.LOGOUT_DEVELOPER).data(person).build();
         logoutAction(request);
+    }
+
+    @Override
+    public void addBug(Bug bug) throws Exception {
+        Request request = new Request.Builder().type(RequestType.ADD_BUG).data(bug).build();
+        sendRequest(request);
+        Response response = readResponse();
+        if (response.type() == ResponseType.ERROR) {
+            String error = response.data().toString();
+            throw new Exception(error);
+        }
+    }
+
+    @Override
+    public void solveBug(Bug bug) throws Exception {
+        Request request = new Request.Builder().type(RequestType.SOLVE_BUG).data(bug).build();
+        sendRequest(request);
+        Response response = readResponse();
+        if (response.type() == ResponseType.ERROR) {
+            String error = response.data().toString();
+            System.out.println(error);
+        }
+    }
+
+    @Override
+    public void removeBug(Bug bug) throws Exception {
+        Request request = new Request.Builder().type(RequestType.REMOVE_BUG).data(bug).build();
+        sendRequest(request);
+        Response response = readResponse();
+        if (response.type() == ResponseType.ERROR) {
+            String error = response.data().toString();
+            System.out.println(error);
+        }
+    }
+
+    private Collection<Bug> getBugs(Request request) throws Exception {
+        sendRequest(request);
+        Response response = readResponse();
+        if (response.type() == ResponseType.ERROR) {
+            String error = response.data().toString();
+            throw new Exception(error);
+        }
+        return (Collection<Bug>) response.data();
+    }
+
+    @Override
+    public Collection<Bug> getUnsolvedBugs() throws Exception {
+        return getBugs(new Request.Builder().type(RequestType.GET_UNSOLVED_BUGS).build());
+    }
+
+    @Override
+    public Collection<Bug> getAllBugs() throws Exception {
+        return getBugs(new Request.Builder().type(RequestType.GET_BUGS).build());
     }
 
     private void sendRequest(Request request) throws Exception {
@@ -135,11 +190,14 @@ public class ClientRpcProxy implements IService {
     }
 
     private boolean isUpdate(Response response) {
-        return false;
+        return response.type() == ResponseType.BUGS_LIST_CHANGED;
     }
 
     private void handleUpdate(Response response) throws Exception {
-        // TODO implement method
+        if (response.type() == ResponseType.BUGS_LIST_CHANGED) {
+            Collection<Bug> bugs = (Collection<Bug>) response.data();
+            client.bugListChanged(bugs);
+        }
     }
 
     private class ReaderThread implements Runnable {

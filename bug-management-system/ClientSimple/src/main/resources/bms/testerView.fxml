@@ -13,17 +13,18 @@
 <AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="bms.client.gui.TesterController">
     <children>
-        <TableView layoutX="13.0" layoutY="7.0" prefHeight="219.0" prefWidth="475.0">
+        <TableView fx:id="bugsTable" layoutX="13.0" layoutY="7.0" prefHeight="219.0" prefWidth="475.0">
             <columns>
-                <TableColumn prefWidth="118.0" text="Name"/>
-                <TableColumn prefWidth="356.0" text="Description"/>
+                <TableColumn fx:id="bugNameColumn" prefWidth="118.0" text="Name"/>
+                <TableColumn fx:id="bugDescriptionColumn" prefWidth="356.0" text="Description"/>
             </columns>
         </TableView>
-        <TextArea layoutX="144.0" layoutY="294.0" prefHeight="85.0" prefWidth="345.0"/>
-        <TextField layoutX="13.0" layoutY="294.0" prefHeight="25.0" prefWidth="123.0"/>
-        <Button layoutX="15.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
-                text="Report bug"/>
-        <Spinner layoutX="13.0" layoutY="354.0" prefHeight="0.0" prefWidth="123.0"/>
+        <TextArea fx:id="bugDescriptionText" layoutX="144.0" layoutY="294.0" prefHeight="85.0" prefWidth="345.0"/>
+        <TextField fx:id="bugNameText" layoutX="13.0" layoutY="294.0" prefHeight="25.0" prefWidth="123.0"/>
+        <Button layoutX="15.0" layoutY="235.0" mnemonicParsing="false" onAction="#reportBugAction" prefHeight="25.0"
+                prefWidth="150.0" text="Report bug"/>
+        <Spinner fx:id="severitySpinner" editable="true" layoutX="13.0" layoutY="354.0" prefHeight="0.0"
+                 prefWidth="123.0"/>
         <Label layoutX="13.0" layoutY="269.0" text="Name of the bug">
             <font>
                 <Font size="16.0"/>
@@ -40,8 +41,8 @@
             </font>
         </Label>
         <Button layoutX="176.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
-                text="Remove bugs"/>
-        <Button fx:id="logoutButton" layoutX="339.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
-                text="Log out" onAction="#logoutAction"/>
+                text="Remove bug" onAction="#removeBugAction"/>
+        <Button fx:id="logoutButton" layoutX="339.0" layoutY="235.0" mnemonicParsing="false" onAction="#logoutAction"
+                prefHeight="25.0" prefWidth="150.0" text="Log out"/>
     </children>
 </AnchorPane>

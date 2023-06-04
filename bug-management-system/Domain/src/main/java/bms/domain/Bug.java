@@ -32,6 +32,15 @@ public class Bug implements Entity<Integer>, Serializable {
         this.status = status;
     }
 
+    public Bug(String name, String description, LocalDateTime lastUpdate, int severity, StatusBug status) {
+        this.id = 0;
+        this.name = name;
+        this.description = description;
+        this.lastUpdate = lastUpdate;
+        this.severity = severity;
+        this.status = status;
+    }
+
     public Bug() {
         this.id = 0;
         this.name = "";

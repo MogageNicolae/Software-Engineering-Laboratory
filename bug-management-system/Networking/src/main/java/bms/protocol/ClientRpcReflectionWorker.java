@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.util.Collection;
 
 public class ClientRpcReflectionWorker implements Runnable, IObserver {
     private final IService server;
@@ -75,12 +76,78 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         return response;
     }
 
+    @Override
+    public void bugListChanged(Collection<Bug> bugs) throws Exception {
+        try {
+            sendResponse(new Response.Builder().type(ResponseType.BUGS_LIST_CHANGED).data(bugs).build());
+        } catch (IOException e) {
+            throw new Exception("sending error: " + e);
+        }
+    }
+
+    private Response handleADD_BUG(Request request) {
+        System.out.println("Add bug request ..." + request.type());
+        System.out.println("Received request: " + request.data().toString());
+        Bug bug = (Bug) request.data();
+        try {
+            server.addBug(bug);
+            return okResponse;
+        } catch(Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
+    private Response handleSOLVE_BUG(Request request) {
+        System.out.println("Solve bug request ..." + request.type());
+        System.out.println("Received request: " + request.data().toString());
+        Bug bug = (Bug) request.data();
+        try {
+            server.solveBug(bug);
+            return okResponse;
+        } catch(Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
+    private Response handleREMOVE_BUG(Request request) {
+        System.out.println("Remove bug request ..." + request.type());
+        System.out.println("Received request: " + request.data().toString());
+        Bug bug = (Bug) request.data();
+        try {
+            server.removeBug(bug);
+            return okResponse;
+        } catch(Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
+    private Response handleGET_UNSOLVED_BUGS(Request request) {
+        System.out.println("Get unsolved bugs request ... " + request.type());
+        try {
+            return new Response.Builder().type(ResponseType.GET_UNSOLVED_BUGS).data(server.getUnsolvedBugs()).build();
+        } catch (Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
+    private Response handleGET_BUGS(Request request) {
+        System.out.println("Get gus request ... " + request.type());
+        try {
+            return new Response.Builder().type(ResponseType.GET_BUGS).data(server.getAllBugs()).build();
+        } catch (Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
     private Response handleLOGIN_DEVELOPER(Request request) {
         System.out.println("Login request ..." + request.type());
         System.out.println("Received request: " + request.data().toString());
         Developer developer = (Developer) request.data();
         try {
             Developer found = server.login(developer, this);
+            if (found == null) {
+                return new Response.Builder().type(ResponseType.NULL).build();
+            }
             return new Response.Builder().type(ResponseType.OK).data(found).build();
         } catch (Exception e) {
             connected = false;
@@ -94,6 +161,9 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         Tester tester = (Tester) request.data();
         try {
             Tester found = server.login(tester, this);
+            if (found == null) {
+                return new Response.Builder().type(ResponseType.NULL).build();
+            }
             return new Response.Builder().type(ResponseType.OK).data(found).build();
         } catch (Exception e) {
             connected = false;

@@ -1,5 +1,7 @@
 package bms.server;
 
+import bms.persistence.bugs.BugRepository;
+import bms.persistence.bugs.IBugRepository;
 import bms.persistence.developers.DeveloperRepository;
 import bms.persistence.developers.IDeveloperRepository;
 import bms.persistence.testers.ITesterRepository;
@@ -20,8 +22,9 @@ public class StartServer {
 
         IDeveloperRepository developerRepository = new DeveloperRepository();
         ITesterRepository testerRepository = new TesterRepository();
+        IBugRepository bugRepository = new BugRepository();
 
-        IService service = new ServiceImpl(testerRepository, developerRepository);
+        IService service = new ServiceImpl(testerRepository, developerRepository, bugRepository);
 
         AbstractServer server = new RpcConcurrentServer(defaultPort, service);
 

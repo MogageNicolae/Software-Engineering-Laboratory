@@ -34,13 +34,11 @@ public class LoginController {
         this.server = server;
     }
 
-    private void startDeveloperWindow(Developer developer) throws IOException {
-        FXMLLoader developerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/developerView.fxml"));
-        root = developerLoader.load();
-        developerController = developerLoader.getController();
+    private void startDeveloperWindow(Developer developer) {
         developerController.setServer(server);
         developerController.setStage((Stage) loginButton.getScene().getWindow());
         developerController.setDeveloper(developer);
+        developerController.initialise();
 
         stage.setTitle("Developer");
         stage.setScene(new Scene(root, 500, 370));
@@ -53,13 +51,11 @@ public class LoginController {
         currentStage.close();
     }
 
-    private void startTesterWindow(Tester tester) throws IOException {
-        FXMLLoader testerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/testerView.fxml"));
-        root = testerLoader.load();
-        testerController = testerLoader.getController();
-        testerController.setServer(server);
+    private void startTesterWindow(Tester tester) {
         testerController.setStage((Stage) loginButton.getScene().getWindow());
         testerController.setTester(tester);
+        testerController.setServer(server);
+        testerController.initialise();
 
         stage.setTitle("Tester");
         stage.setScene(new Scene(root, 500, 400));
@@ -78,11 +74,15 @@ public class LoginController {
         Alert alert;
 
         try {
-            testerController = new TesterController();
+            FXMLLoader testerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/testerView.fxml"));
+            root = testerLoader.load();
+            testerController = testerLoader.getController();
             Tester testerToLogIn = new Tester(username, password);
             Tester tester = server.login(testerToLogIn, testerController);
             if (tester == null) {
-                developerController = new DeveloperController();
+                FXMLLoader developerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/developerView.fxml"));
+                root = developerLoader.load();
+                developerController = developerLoader.getController();
                 Developer developerToLogIn = new Developer(username, password);
                 Developer developer = server.login(developerToLogIn, developerController);
                 if (developer == null) {
@@ -98,6 +98,8 @@ public class LoginController {
 
                 startDeveloperWindow(developer);
 
+                testerController = null;
+
                 return;
             }
 
@@ -109,7 +111,8 @@ public class LoginController {
             startTesterWindow(tester);
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.show();
         }
     }
 }
