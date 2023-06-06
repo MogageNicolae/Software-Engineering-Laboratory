@@ -46,4 +46,28 @@ public class BugRepository extends AbstractRepository<Bug, Integer> implements I
         logger.traceExit("Error");
         return null;
     }
+
+    @Override
+    public Collection<Bug> getUnsolvedByTester(int id) {
+        logger.traceEntry("Getting all unsolved entities from specific tester");
+
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = null;
+            try {
+                transaction = session.beginTransaction();
+                Collection<Bug> entities = session.createQuery("from Bug where status = 'UNSOLVED' AND testerId = :id", Bug.class)
+                        .setParameter("id", id).list();
+                transaction.commit();
+                logger.traceExit(entities);
+                return entities;
+            } catch (RuntimeException ex) {
+                if (transaction != null)
+                    transaction.rollback();
+                logger.error("Error while finding entity: " + ex);
+            }
+        }
+
+        logger.traceExit("Error");
+        return null;
+    }
 }

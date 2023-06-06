@@ -20,24 +20,28 @@ public class Bug implements Entity<Integer>, Serializable {
     private LocalDateTime lastUpdate;
     @Column(name = "severity")
     private int severity;
+    @Column(name = "testerId")
+    private int testerId;
     @Enumerated(EnumType.STRING)
     private StatusBug status;
 
-    public Bug(int id, String name, String description, LocalDateTime lastUpdate, int severity, StatusBug status) {
+    public Bug(int id, String name, String description, LocalDateTime lastUpdate, int severity, int testerId, StatusBug status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.lastUpdate = lastUpdate;
         this.severity = severity;
+        this.testerId = testerId;
         this.status = status;
     }
 
-    public Bug(String name, String description, LocalDateTime lastUpdate, int severity, StatusBug status) {
+    public Bug(String name, String description, LocalDateTime lastUpdate, int severity, int testerId, StatusBug status) {
         this.id = 0;
         this.name = name;
         this.description = description;
         this.lastUpdate = lastUpdate;
         this.severity = severity;
+        this.testerId = testerId;
         this.status = status;
     }
 
@@ -47,6 +51,7 @@ public class Bug implements Entity<Integer>, Serializable {
         this.description = "";
         this.lastUpdate = LocalDateTime.now();
         this.severity = 0;
+        this.testerId = 0;
         this.status = StatusBug.UNSOLVED;
     }
 
@@ -90,6 +95,14 @@ public class Bug implements Entity<Integer>, Serializable {
 
     public void setSeverity(int severity) {
         this.severity = severity;
+    }
+
+    public int getTesterId() {
+        return testerId;
+    }
+
+    public void setTesterId(int testerId) {
+        this.testerId = testerId;
     }
 
     public StatusBug getStatus() {

@@ -25,7 +25,7 @@ public class StartClient extends Application {
         Parent root = fxmlLoader.load();
 
         LoginController loginController = fxmlLoader.getController();
-        loginController.setServer(server);
+        loginController.setService(server);
 
         primaryStage.setTitle("Hello!");
         primaryStage.setScene(new Scene(root, 250, 260));

@@ -13,6 +13,7 @@ import bms.services.IService;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ServiceImpl implements IService {
@@ -82,7 +83,7 @@ public class ServiceImpl implements IService {
 
     @Override
     public void solveBug(Bug bug) throws Exception {
-        Bug updatedBug = new Bug(bug.getId(), bug.getName(), bug.getDescription(), LocalDateTime.now(), bug.getSeverity(), StatusBug.SOLVED);
+        Bug updatedBug = new Bug(bug.getId(), bug.getName(), bug.getDescription(), LocalDateTime.now(), bug.getSeverity(), bug.getTesterId(), StatusBug.SOLVED);
         bugRepository.update(updatedBug, bug.getId());
         for (IObserver person : loggedPeople.values()) {
             person.bugListChanged(bugRepository.getUnsolved());
@@ -100,6 +101,11 @@ public class ServiceImpl implements IService {
     @Override
     public Collection<Bug> getUnsolvedBugs() {
         return bugRepository.getUnsolved();
+    }
+
+    @Override
+    public Collection<Bug> getUnsolvedBugsByTester(int id) {
+        return bugRepository.getUnsolvedByTester(id);
     }
 
     @Override

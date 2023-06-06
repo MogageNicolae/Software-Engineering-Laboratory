@@ -13,7 +13,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
@@ -24,19 +23,19 @@ public class LoginController {
     @FXML
     public TextField passwordInput;
 
-    private IService server;
+    private IService service;
     private Parent root;
     private TesterController testerController;
     private DeveloperController developerController;
     private final Stage stage = new Stage();
 
-    public void setServer(IService server) {
-        this.server = server;
+    public void setService(IService service) {
+        this.service = service;
     }
 
     private void startDeveloperWindow(Developer developer) {
-        developerController.setServer(server);
-        developerController.setStage((Stage) loginButton.getScene().getWindow());
+        developerController.setService(service);
+        developerController.setLoginStage((Stage) loginButton.getScene().getWindow());
         developerController.setDeveloper(developer);
         developerController.initialise();
 
@@ -52,9 +51,9 @@ public class LoginController {
     }
 
     private void startTesterWindow(Tester tester) {
-        testerController.setStage((Stage) loginButton.getScene().getWindow());
+        testerController.setLoginStage((Stage) loginButton.getScene().getWindow());
         testerController.setTester(tester);
-        testerController.setServer(server);
+        testerController.setService(service);
         testerController.initialise();
 
         stage.setTitle("Tester");
@@ -78,13 +77,13 @@ public class LoginController {
             root = testerLoader.load();
             testerController = testerLoader.getController();
             Tester testerToLogIn = new Tester(username, password);
-            Tester tester = server.login(testerToLogIn, testerController);
+            Tester tester = service.login(testerToLogIn, testerController);
             if (tester == null) {
                 FXMLLoader developerLoader = new FXMLLoader(getClass().getClassLoader().getResource("bms/developerView.fxml"));
                 root = developerLoader.load();
                 developerController = developerLoader.getController();
                 Developer developerToLogIn = new Developer(username, password);
-                Developer developer = server.login(developerToLogIn, developerController);
+                Developer developer = service.login(developerToLogIn, developerController);
                 if (developer == null) {
                     alert = new Alert(Alert.AlertType.ERROR, "Wrong username", ButtonType.OK);
                     alert.show();

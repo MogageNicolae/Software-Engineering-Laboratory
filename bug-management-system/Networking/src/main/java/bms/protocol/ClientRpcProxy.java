@@ -28,6 +28,7 @@ public class ClientRpcProxy implements IService {
     public ClientRpcProxy(String host, int port) {
         this.host = host;
         this.port = port;
+        this.connection = null;
         qresponses = new LinkedBlockingQueue<>();
     }
 
@@ -40,8 +41,7 @@ public class ClientRpcProxy implements IService {
                 this.client = client;
                 return response.data();
             }
-            case NULL -> {
-                closeConnection();
+            case INEXISTENT -> {
                 return null;
             }
             case ERROR -> {
@@ -136,6 +136,11 @@ public class ClientRpcProxy implements IService {
     }
 
     @Override
+    public Collection<Bug> getUnsolvedBugsByTester(int id) throws Exception {
+        return getBugs(new Request.Builder().type(RequestType.GET_UNSOLVED_BUGS_BY_TESTER).data(id).build());
+    }
+
+    @Override
     public Collection<Bug> getAllBugs() throws Exception {
         return getBugs(new Request.Builder().type(RequestType.GET_BUGS).build());
     }
@@ -160,6 +165,9 @@ public class ClientRpcProxy implements IService {
     }
 
     private void initializeConnection() {
+        if (connection != null) {
+            return;
+        }
         try {
             connection = new Socket(host, port);
             output = new ObjectOutputStream(connection.getOutputStream());
@@ -183,6 +191,7 @@ public class ClientRpcProxy implements IService {
             input.close();
             output.close();
             connection.close();
+            connection = null;
             client = null;
         } catch (IOException e) {
             e.printStackTrace();

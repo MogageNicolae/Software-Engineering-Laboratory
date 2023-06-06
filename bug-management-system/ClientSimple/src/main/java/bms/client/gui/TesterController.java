@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class TesterController implements IObserver {
     @FXML
@@ -39,12 +40,12 @@ public class TesterController implements IObserver {
     private IService service;
     private Tester tester;
 
-    public void setServer(IService service) {
+    public void setService(IService service) {
         this.service = service;
     }
 
-    public void setStage(Stage stage) {
-        this.loginStage = stage;
+    public void setLoginStage(Stage loginStage) {
+        this.loginStage = loginStage;
     }
 
     public void setTesterStage(Stage stage) {
@@ -61,7 +62,7 @@ public class TesterController implements IObserver {
         severitySpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
         Collection<Bug> bugs;
         try {
-            bugs = service.getUnsolvedBugs();
+            bugs = service.getUnsolvedBugsByTester(tester.getId());
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.show();
@@ -70,7 +71,7 @@ public class TesterController implements IObserver {
         updateBugsTable(bugs);
     }
 
-    public void updateBugsTable(Collection<Bug> bugs) {
+    private void updateBugsTable(Collection<Bug> bugs) {
         bugsList.setAll(bugs);
         bugsTable.setItems(bugsList);
     }
@@ -85,7 +86,7 @@ public class TesterController implements IObserver {
         }
     }
 
-    public boolean isInvalidBug(String description, String name, int severity) {
+    private boolean isInvalidBug(String description, String name, int severity) {
         if (description.isBlank() || description.isEmpty()) {
             return true;
         }
@@ -107,7 +108,7 @@ public class TesterController implements IObserver {
             return;
         }
 
-        Bug bug = new Bug(bugName, bugDescription, LocalDateTime.now(), severity, StatusBug.UNSOLVED);
+        Bug bug = new Bug(bugName, bugDescription, LocalDateTime.now(), severity, tester.getId(), StatusBug.UNSOLVED);
         try {
             service.addBug(bug);
         } catch (Exception e) {
@@ -136,9 +137,10 @@ public class TesterController implements IObserver {
 
     @Override
     public void bugListChanged(Collection<Bug> bugs) {
+        Collection<Bug> filteredBugs = bugs.stream().filter(bug -> bug.getTesterId() == tester.getId()).toList();
         Platform.runLater(() -> {
             try {
-                updateBugsTable(bugs);
+                updateBugsTable(filteredBugs);
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
                 alert.show();

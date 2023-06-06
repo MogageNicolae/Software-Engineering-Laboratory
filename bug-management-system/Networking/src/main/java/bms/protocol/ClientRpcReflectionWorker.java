@@ -92,7 +92,7 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         try {
             server.addBug(bug);
             return okResponse;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
         }
     }
@@ -104,7 +104,7 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         try {
             server.solveBug(bug);
             return okResponse;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
         }
     }
@@ -116,7 +116,7 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         try {
             server.removeBug(bug);
             return okResponse;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
         }
     }
@@ -125,6 +125,16 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         System.out.println("Get unsolved bugs request ... " + request.type());
         try {
             return new Response.Builder().type(ResponseType.GET_UNSOLVED_BUGS).data(server.getUnsolvedBugs()).build();
+        } catch (Exception e) {
+            return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
+        }
+    }
+
+    private Response handleGET_UNSOLVED_BUGS_BY_TESTER(Request request) {
+        System.out.println("Get unsolved bugs request by user ..." + request.type());
+        try {
+            return new Response.Builder().type(ResponseType.GET_UNSOLVED_BUGS_BY_TESTER).
+                    data(server.getUnsolvedBugsByTester((int) request.data())).build();
         } catch (Exception e) {
             return new Response.Builder().type(ResponseType.ERROR).data(e.getMessage()).build();
         }
@@ -146,7 +156,7 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         try {
             Developer found = server.login(developer, this);
             if (found == null) {
-                return new Response.Builder().type(ResponseType.NULL).build();
+                return new Response.Builder().type(ResponseType.INEXISTENT).build();
             }
             return new Response.Builder().type(ResponseType.OK).data(found).build();
         } catch (Exception e) {
@@ -162,7 +172,7 @@ public class ClientRpcReflectionWorker implements Runnable, IObserver {
         try {
             Tester found = server.login(tester, this);
             if (found == null) {
-                return new Response.Builder().type(ResponseType.NULL).build();
+                return new Response.Builder().type(ResponseType.INEXISTENT).build();
             }
             return new Response.Builder().type(ResponseType.OK).data(found).build();
         } catch (Exception e) {

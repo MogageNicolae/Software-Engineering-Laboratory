@@ -54,7 +54,7 @@ public abstract class AbstractRepository<T extends Entity<ID>, ID> implements Re
     }
 
     @Override
-    public boolean delete(T elem) {
+    public void delete(T elem) {
         logger.traceEntry("Deleting entity {} ", elem);
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = null;
@@ -64,7 +64,7 @@ public abstract class AbstractRepository<T extends Entity<ID>, ID> implements Re
 //                session.remove(elem);
                 transaction.commit();
                 logger.traceExit("Successfully deleted entity");
-                return true;
+                return;
             } catch (RuntimeException ex) {
                 if (transaction != null)
                     transaction.rollback();
@@ -72,11 +72,10 @@ public abstract class AbstractRepository<T extends Entity<ID>, ID> implements Re
             }
         }
         logger.traceExit("Error");
-        return false;
     }
 
     @Override
-    public boolean update(T elem, ID id) {
+    public void update(T elem, ID id) {
         logger.traceEntry("Updating entity {} ", elem);
 
         try (Session session = sessionFactory.openSession()) {
@@ -87,7 +86,7 @@ public abstract class AbstractRepository<T extends Entity<ID>, ID> implements Re
 //                session.merge(elem);
                 transaction.commit();
                 logger.traceExit("Successfully updated entity");
-                return true;
+                return;
             } catch (RuntimeException ex) {
                 if (transaction != null)
                     transaction.rollback();
@@ -96,7 +95,6 @@ public abstract class AbstractRepository<T extends Entity<ID>, ID> implements Re
         }
 
         logger.traceExit("Error");
-        return false;
     }
 
     protected abstract T createQuery(Session session, ID id);

@@ -7,9 +7,7 @@ import bms.services.IService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -38,12 +36,12 @@ public class DeveloperController implements IObserver {
     private IService service;
     private Developer developer;
 
-    public void setServer(IService service) {
+    public void setService(IService service) {
         this.service = service;
     }
 
-    public void setStage(Stage stage) {
-        this.loginStage = stage;
+    public void setLoginStage(Stage loginStage) {
+        this.loginStage = loginStage;
     }
 
     public void setDeveloperStage(Stage stage) {
@@ -69,17 +67,19 @@ public class DeveloperController implements IObserver {
         bugDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         bugSeverityColumn.setCellValueFactory(new PropertyValueFactory<>("severity"));
         severityCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            updateBugsTable(getBugs(), newValue);
+            updateBugsTable(bugsList.stream().toList(), newValue);
         });
         updateBugsTable(getBugs(), false);
     }
 
-    public void updateBugsTable(Collection<Bug> bugs, boolean sorted) {
-        if (sorted) {
-            bugs = bugs.stream().sorted(Comparator.comparingInt(Bug::getSeverity)).toList();
-        }
+    private void updateBugsTable(Collection<Bug> bugs, boolean sorted) {
         bugsList.setAll(bugs);
-        bugsTable.setItems(bugsList);
+        if (sorted) {
+            bugsTable.setItems(bugsList.sorted(Comparator.comparingInt(Bug::getSeverity)));
+        }
+        else {
+            bugsTable.setItems(bugsList);
+        }
     }
 
     public void logoutAction() {

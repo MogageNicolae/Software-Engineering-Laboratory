@@ -15,5 +15,6 @@ public interface IService {
     void solveBug(Bug bug) throws Exception;
     void removeBug(Bug bug) throws Exception;
     Collection<Bug> getUnsolvedBugs() throws Exception;
+    Collection<Bug> getUnsolvedBugsByTester(int id) throws Exception;
     Collection<Bug> getAllBugs() throws Exception;
 }

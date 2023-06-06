@@ -5,26 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a4ab4c7-1bfe-46d6-9ee6-bb683aa480bc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laborator_1.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../Laborator_1.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/719ee0d6-19c7-4334-9682-1d22f4ac41fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/719ee0d6-19c7-4334-9682-1d22f4ac41fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientSimple/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/StartClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/StartClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/DeveloperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/DeveloperController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/TesterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/java/bms/client/gui/TesterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/developerView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/developerView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/logInView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/logInView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/testerView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ClientSimple/src/main/resources/bms/testerView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/bms/domain/Bug.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcReflectionWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcReflectionWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/RequestType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ResponseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/AbstractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/BugRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/BugRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/IBugRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistence/src/main/java/bms/persistence/bugs/IBugRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/iss.db" beforeDir="false" afterPath="$PROJECT_DIR$/Server/iss.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/bms/server/StartServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/bms/server/StartServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/bms/server/implementation/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/bms/server/implementation/ServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/target/Jurnalizare.log" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/Jurnalizare.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/bms/services/IObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/bms/services/IObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/src/main/java/bms/services/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/bms/services/IService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +164,7 @@
       <recent name="F:\Repositories\Software-Engineering-Laboratory\bug-management-system\Networking\src\main\java\bms\protocol" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.bug-management-system:Server [run]">
+  <component name="RunManager" selected="Gradle.bug-management-system:ClientSimple [run]">
     <configuration name="Client [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -303,6 +306,13 @@
       <workItem from="1685526495467" duration="2556000" />
       <workItem from="1685555149329" duration="10798000" />
       <workItem from="1685881583152" duration="9580000" />
+      <workItem from="1685891187126" duration="59000" />
+      <workItem from="1685952191667" duration="689000" />
+      <workItem from="1685963521944" duration="16021000" />
+      <workItem from="1685994785773" duration="7245000" />
+      <workItem from="1686033553333" duration="817000" />
+      <workItem from="1686035341109" duration="267000" />
+      <workItem from="1686051070287" duration="2051000" />
     </task>
     <servers />
   </component>
@@ -319,16 +329,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Networking/src/main/java/bms/protocol/ClientRpcProxy.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
